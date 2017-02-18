@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour {
 	public Rigidbody rg;
 	public float speed;
 	public TextMesh txtBall;
+	public GameObject dieEffectPrefab;
 	// Use this for initialization
 	void Start () {
 		
@@ -30,5 +31,10 @@ public class BallController : MonoBehaviour {
 //		else if (collision.gameObject.tag == "ceil") {
 //			Destroy (gameObject);
 //		}
+	}
+
+	void OnDestroy() {
+		GameObject dieEffect = Instantiate (dieEffectPrefab);
+		dieEffect.transform.position = this.gameObject.transform.position;
 	}
 }

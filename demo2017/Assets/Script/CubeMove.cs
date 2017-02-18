@@ -17,4 +17,9 @@ public class CubeMove : MonoBehaviour {
 	void Update () {
 		
 	}
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "ball") {
+			Destroy (collision.gameObject);
+		} 
+	}
 }
