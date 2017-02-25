@@ -32,9 +32,14 @@ public class BallController : MonoBehaviour {
 //			Destroy (gameObject);
 //		}
 	}
-
+	public void SetDieCallback(System.Action callback){
+		dieCallBack = callback;
+	}
+	System.Action dieCallBack;
 	void OnDestroy() {
+		SceneBallController.life--;
 		GameObject dieEffect = Instantiate (dieEffectPrefab);
 		dieEffect.transform.position = this.gameObject.transform.position;
+		dieCallBack ();
 	}
 }
