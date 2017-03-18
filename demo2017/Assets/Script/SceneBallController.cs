@@ -12,6 +12,7 @@ public class SceneBallController : MonoBehaviour {
 	public GameObject obtaclePrefab;
 	public GameObject moneyPrefab;
 	public GameObject ballPrefab;
+	public Button btnJump;
 	void Start () {
 		DoTestObtacle ();
 		CreateBall ();
@@ -57,6 +58,10 @@ public class SceneBallController : MonoBehaviour {
 	}
 
 	void CreateBall(){
-		Instantiate (ballPrefab).GetComponent<BallController> ().SetDieCallback (CreateBall);
+
+		GameObject ballObj = Instantiate (ballPrefab);
+		BallController aaaa = ballObj.GetComponent<BallController> ();
+		aaaa.SetDieCallback (CreateBall);
+		btnJump.onClick.AddListener( aaaa.DoJump);
 	}
 }

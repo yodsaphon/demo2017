@@ -16,10 +16,14 @@ public class MoneyController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		Debug.Log ("MoneyController >> OnTriggerEnter >> "+other.gameObject.tag);
 		if (other.gameObject.gameObject.tag == "ball") {
 			SceneBallController.score++;
 			Destroy (gameObject);
+		} else if (other.gameObject.gameObject.tag == "boundary") {
+			Destroy (this.gameObject);
 		}
 	}
+
 
 }

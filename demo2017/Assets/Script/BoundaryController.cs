@@ -14,6 +14,12 @@ public class BoundaryController : MonoBehaviour {
 		
 	}
 	void OnCollisionEnter(Collision collision) {
+		//Debug.Log ("OnCollisionEnter >> "+collision.gameObject.tag);
 		Destroy (collision.gameObject);
 	}
+
+//	void OnTriggerEnter(Collider other) {
+//		Debug.Log ("BoundaryController >> OnTriggerEnter >> "+other.gameObject.tag);
+//		Destroy (other.gameObject);
+//	}
 }

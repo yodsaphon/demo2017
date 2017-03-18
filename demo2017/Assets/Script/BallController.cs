@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour {
 	}
 	int countCollosion = 0;
 	void OnCollisionEnter(Collision collision) {
-		Debug.LogFormat ("collision is {0}",collision.gameObject.tag);
+		//Debug.LogFormat ("collision is {0}",collision.gameObject.tag);
 		if (collision.gameObject.tag == "floor") {
 			countCollosion++;
 			txtBall.text = "Floor : " + countCollosion.ToString ();
